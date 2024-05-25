@@ -730,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4006227820447106141, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4006227820447106141, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_LocalRotation.x
@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4006227820447106141, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4006227820447106141, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -754,8 +754,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4006227820447106141, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: bulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: missileCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: missilePrefab
+      value: 
+      objectReference: {fileID: 2566400201774554973, guid: a6d811fa42e3b6b4da0a2d389129bffd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

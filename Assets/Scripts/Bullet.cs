@@ -16,9 +16,9 @@ public class Bullet : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (hitInfo.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
             Destroy(gameObject);
