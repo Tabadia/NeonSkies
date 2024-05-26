@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &20898788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20898789}
+  - component: {fileID: 20898790}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &20898789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20898788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20898790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20898788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959d172150d9ef6498272a65f764cc71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomberPrefab: {fileID: 3483550249134082389, guid: 63573dd7846889c4e8e17a2f2cc3ec4c, type: 3}
+  spawnFrequency: 5
+  minHeight: 4
+  maxHeight: 4.8
 --- !u!1 &86749446
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &86749447
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -773,22 +821,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 688487004}
-    - target: {fileID: 1428275092403337558, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-      propertyPath: accuracy
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428275092403337558, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428275092403337558, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-      propertyPath: acceleration
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428275092403337558, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-      propertyPath: rotationSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6511561852589029996, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.07
@@ -848,3 +880,4 @@ SceneRoots:
   - {fileID: 171973724}
   - {fileID: 86749448}
   - {fileID: 4098969559172196606}
+  - {fileID: 20898789}
