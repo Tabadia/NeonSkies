@@ -4,30 +4,102 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 3.0F;
-    public float rotationSpeed = 200.0F; // Speed of rotation
-    private Rigidbody2D rb;
+    public float thrustPower = 20.0f;          // Increased thrust power to overcome gravity
+    public float maxSpeed = 15.0f;             // Maximum speed
+    public float acceleration = 5.0f;          // Acceleration rate
+    public float deceleration = 3.0f;          // Deceleration rate when not thrusting
+    public float airBrakeDeceleration = 10.0f; // Air brake deceleration rate
+    public float rotationSpeed = 500.0f;       // Rotation speed
+    public float rotationSmoothing = 0.1f;     // Rotation smoothing factor
+    public float boostMultiplier = 2.0f;       // Speed multiplier during boost
+    public float boostDuration = 2.0f;         // Duration of boost
+    public float boostCooldown = 5.0f;         // Cooldown between boosts
+    public float normalGravityScale = 1.0f;    // Normal gravity scale when not thrusting
+    public float reducedGravityScale = 0.2f;   // Reduced gravity scale when thrusting
 
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+    private bool isBoosting = false;
+    private float boostEndTime = 0;
+    private float boostCooldownEndTime = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = deceleration;         // Add drag to simulate air resistance
+        rb.gravityScale = normalGravityScale;  // Set initial gravity scale
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        HandleRotation();
+        HandleThrust();
+        HandleAirBrake();
+        HandleBoost();
+        AdjustGravity();
+    }
 
-        Vector2 moveDirection = new Vector2(moveHorizontal, moveVertical);
-        rb.velocity = moveDirection * speed;
+    void HandleRotation()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = -Camera.main.transform.position.z;
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        worldMousePosition.z = 0;
 
-        if (moveDirection != Vector2.zero) // Avoids setting rotation when there's no input
+        Vector2 direction = (worldMousePosition - transform.position).normalized;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        float newRotation = Mathf.LerpAngle(rb.rotation, targetAngle, rotationSmoothing);
+        rb.MoveRotation(Mathf.LerpAngle(rb.rotation, newRotation, rotationSpeed * Time.deltaTime));
+    }
+
+    void HandleThrust()
+    {
+        if (Input.GetKey(KeyCode.W))
         {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90;
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            float appliedThrustPower = thrustPower;
+
+            if (isBoosting)
+            {
+                appliedThrustPower *= boostMultiplier;
+            }
+
+            Vector2 thrustDirection = transform.up * appliedThrustPower;
+            rb.AddForce(thrustDirection, ForceMode2D.Force);
+            rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed * (isBoosting ? boostMultiplier : 1f));
+        }
+    }
+
+    void HandleAirBrake()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, airBrakeDeceleration * Time.deltaTime);
+        }
+    }
+
+    void HandleBoost()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > boostCooldownEndTime)
+        {
+            isBoosting = true;
+            boostEndTime = Time.time + boostDuration;
+            boostCooldownEndTime = Time.time + boostDuration + boostCooldown;
+        }
+
+        if (isBoosting && Time.time > boostEndTime)
+        {
+            isBoosting = false;
+        }
+    }
+
+    void AdjustGravity()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.gravityScale = reducedGravityScale;
+        }
+        else
+        {
+            rb.gravityScale = normalGravityScale;
         }
     }
 }
