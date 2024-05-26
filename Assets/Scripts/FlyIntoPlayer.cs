@@ -12,10 +12,13 @@ public class FlyIntoPlayer2D : MonoBehaviour
     private Vector2 targetDirection;
     private float currentSpeed = 0f;
 
+    private PlayerHealth playerHealth;
+
     private void Start()
     {
         StartCoroutine(UpdateTargetDirection());
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -47,6 +50,7 @@ public class FlyIntoPlayer2D : MonoBehaviour
     {
         if (other.gameObject.transform == player)
         {
+            playerHealth.TakeDamage(20);
             Destroy(gameObject);
         }
     }

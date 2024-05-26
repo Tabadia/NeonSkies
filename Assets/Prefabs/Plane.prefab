@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3116336152513612761}
   - component: {fileID: 5473959735422039855}
   - component: {fileID: 5901151450642879745}
+  - component: {fileID: 2955040036258482056}
   - component: {fileID: 6406708806579187120}
   - component: {fileID: 6001113338029760448}
   m_Layer: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24683822814bd034283304ac745287d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   rotationSpeed: 1000
 --- !u!114 &5901151450642879745
 MonoBehaviour:
@@ -151,6 +152,21 @@ MonoBehaviour:
   bulletSpeed: 25
   bulletSpawnPoint: {fileID: 2774188880175528071}
   missileCount: 5
+--- !u!114 &2955040036258482056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112519920868653724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b865c8ff46249e448f6cdd7406baaf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!50 &6406708806579187120
 Rigidbody2D:
   serializedVersion: 4
