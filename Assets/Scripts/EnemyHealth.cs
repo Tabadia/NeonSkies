@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
-        score.text = (int.Parse(score.text) + 20).ToString("D6");
+        score.text = (int.Parse(score.text) + 50).ToString("D6");
         Destroy(gameObject);
     }
 }

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxSpeed: 4
+  maxSpeed: 7
   acceleration: 4
   rotationSpeed: 100
   accuracy: 0.5
@@ -194,4 +194,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  score: {fileID: 0}

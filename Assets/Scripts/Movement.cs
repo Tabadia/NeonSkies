@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     public float thrustPower = 20.0f;          // Increased thrust power to overcome gravity
@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
     private float boostEndTime = 0;
     private float boostCooldownEndTime = 0;
 
+    public Slider boostSlider;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +38,8 @@ public class Movement : MonoBehaviour
         HandleAirBrake();
         HandleBoost();
         AdjustGravity();
+        //boostSlider.maxValue = 1;
+        boostSlider.value = Mathf.Clamp01(1 - (boostCooldownEndTime - Time.time) / boostCooldown);
     }
 
     void HandleRotation()
@@ -83,6 +87,7 @@ public class Movement : MonoBehaviour
             isBoosting = true;
             boostEndTime = Time.time + boostDuration;
             boostCooldownEndTime = Time.time + boostDuration + boostCooldown;
+            StartCoroutine(BoostSliderEffect());
         }
 
         if (isBoosting && Time.time > boostEndTime)
@@ -101,5 +106,24 @@ public class Movement : MonoBehaviour
         {
             rb.gravityScale = normalGravityScale;
         }
+    }
+
+
+    IEnumerator BoostSliderEffect()
+    {
+        float startTime = Time.time;
+        float startValue = boostSlider.value;
+        float targetValue = 0f;
+        float duration = 0.5f; // Adjust the duration as needed
+
+        while (Time.time < startTime + duration)
+        {
+            float elapsedTime = Time.time - startTime;
+            float t = elapsedTime / duration;
+            boostSlider.value = Mathf.Lerp(startValue, targetValue, t);
+            yield return null;
+        }
+
+        boostSlider.value = targetValue;
     }
 }
