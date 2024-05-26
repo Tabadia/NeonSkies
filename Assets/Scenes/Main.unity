@@ -252,15 +252,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomberPrefab: {fileID: 3483550249134082389, guid: 63573dd7846889c4e8e17a2f2cc3ec4c, type: 3}
-  spawnFrequency: 2
+  spawnFrequency: 4
   flyingToPlayerPrefab: {fileID: 8145000132634236043, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-  flyingToPlayerSpawnFrequency: 5
+  flyingToPlayerSpawnFrequency: 4
   minBHeight: 5
   maxBHeight: 10
   minFHeight: -10
   maxFHeight: 10
   player: {fileID: 1156355536}
-  spawnXDistance: 15
+  spawnXDistance: 30
 --- !u!1 &62077582
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        print(_cg.gamma.value);
+        //print(_cg.gamma.value);
         HandleRotation();
         HandleThrust();
         HandleAirBrake();

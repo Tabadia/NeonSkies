@@ -22,20 +22,24 @@ public class FlyIntoPlayer2D : MonoBehaviour
     }
 
     private void Update()
+{
+    if (player != null)
     {
-        if (player != null)
-        {
-            Vector2 direction2D = (new Vector2(player.position.x, player.position.y) - new Vector2(transform.position.x, transform.position.y)).normalized * accuracy + targetDirection * (1 - accuracy);
-            Vector3 direction = new Vector3(direction2D.x, direction2D.y, 0);
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            Quaternion toRotation = Quaternion.Euler(0, 0, angle);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        Vector2 direction2D = (new Vector2(player.position.x, player.position.y) - new Vector2(transform.position.x, transform.position.y)).normalized * accuracy + targetDirection * (1 - accuracy);
+        Vector3 direction = new Vector3(direction2D.x, direction2D.y, 0);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion toRotation = Quaternion.Euler(0, 0, angle);
 
-            // Accelerate to max speed
-            currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
-            transform.position += transform.up * currentSpeed * Time.deltaTime;
-        }
+        // Use Quaternion.Lerp for a smoother rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+        // Accelerate to max speed
+        currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
+
+        // Directly assign the new position to transform.position
+        transform.position += transform.up * currentSpeed * Time.deltaTime;
     }
+}
 
     private IEnumerator UpdateTargetDirection()
     {

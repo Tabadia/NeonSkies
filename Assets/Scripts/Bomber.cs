@@ -34,12 +34,19 @@ public class Bomber : MonoBehaviour
         transform.position = newPosition;
     }
 
+    public int projectilesPerBurst = 5; // Number of projectiles in each burst
+    public float cooldownTime = 5f; // Cooldown time between bursts
+
     private IEnumerator DropProjectiles()
     {
         while (true)
         {
-            Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(dropFrequency);
+            for (int i = 0; i < projectilesPerBurst; i++)
+            {
+                Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(dropFrequency);
+            }
+            yield return new WaitForSeconds(cooldownTime);
         }
     }
 }
