@@ -15,6 +15,7 @@ public class FlyIntoPlayer2D : MonoBehaviour
     private void Start()
     {
         StartCoroutine(UpdateTargetDirection());
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
