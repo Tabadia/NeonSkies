@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxSpeed: 5
-  acceleration: 2.5
-  rotationSpeed: 150
-  accuracy: 0.9
+  maxSpeed: 4
+  acceleration: 4
+  rotationSpeed: 100
+  accuracy: 0.5
 --- !u!50 &4007100287357833446
 Rigidbody2D:
   serializedVersion: 4
