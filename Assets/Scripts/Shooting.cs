@@ -10,15 +10,22 @@ public class Shooting : MonoBehaviour
     public GameObject bulletSpawnPoint;
     public int missileCount = 6;
 
-    // Update is called once per frame
+    public float bulletCooldown = 0.5f; 
+    public float missileCooldown = 2.0f;
+
+    private float lastBulletShotTime;
+    private float lastMissileShotTime;
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time - lastBulletShotTime >= bulletCooldown)
         {
+            lastBulletShotTime = Time.time;
             StartCoroutine(ShootBullet());
         }
-        else if (Input.GetButtonDown("Fire2"))
+        else if (Input.GetButtonDown("Fire2") && Time.time - lastMissileShotTime >= missileCooldown)
         {
+            lastMissileShotTime = Time.time;
             StartCoroutine(ShootMissiles());
         }
     }
@@ -27,17 +34,14 @@ public class Shooting : MonoBehaviour
     {
         for (int i = 0; i < 3; i++) // Fire three bullets in a burst
         {
-            // Create a new bullet instance
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, transform.rotation);
 
-            // Get the Rigidbody2D component from the bullet instance
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-            // Set the velocity of the bullet with a slight random offset
             Vector2 randomOffset = new Vector2(Random.Range(-0.03f, 0.03f), Random.Range(-0.03f, 0.03f));
             rb.velocity = (transform.up + (Vector3)randomOffset) * bulletSpeed;
 
-            yield return new WaitForSeconds(0.04f); // Wait a short time between each bullet in the burst
+            yield return new WaitForSeconds(0.04f);
         }
     }
 

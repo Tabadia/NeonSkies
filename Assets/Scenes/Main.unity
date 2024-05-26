@@ -3146,6 +3146,14 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: bulletCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: missileCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6406708806579187120, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_BodyType
       value: 0
