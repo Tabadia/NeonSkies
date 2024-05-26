@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxSpeed: 7
+  maxSpeed: 8
   acceleration: 4
   rotationSpeed: 100
   accuracy: 0.5

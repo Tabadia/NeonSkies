@@ -1205,7 +1205,7 @@ Transform:
   m_GameObject: {fileID: 590266308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -13}
+  m_LocalPosition: {x: 0, y: 0, z: -19.99}
   m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3127,6 +3127,10 @@ PrefabInstance:
       propertyPath: boostSlider
       value: 
       objectReference: {fileID: 2038330812}
+    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: _postProcessVolume
+      value: 
+      objectReference: {fileID: 1459461670}
     - target: {fileID: 6406708806579187120, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_BodyType
       value: 0

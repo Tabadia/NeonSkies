@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
+
 public class Movement : MonoBehaviour
 {
     public float thrustPower = 20.0f;          // Increased thrust power to overcome gravity
@@ -16,11 +18,15 @@ public class Movement : MonoBehaviour
     public float boostCooldown = 5.0f;         // Cooldown between boosts
     public float normalGravityScale = 1.0f;    // Normal gravity scale when not thrusting
     public float reducedGravityScale = 0.2f;   // Reduced gravity scale when thrusting
+    public PostProcessVolume _postProcessVolume;
 
     private Rigidbody2D rb;
     private bool isBoosting = false;
     private float boostEndTime = 0;
     private float boostCooldownEndTime = 0;
+    private ColorGrading _cg;
+    private Vector4 targetCg;
+    private Vector4 originalCg;
 
     public Slider boostSlider;
 
@@ -29,10 +35,14 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.drag = deceleration;         // Add drag to simulate air resistance
         rb.gravityScale = normalGravityScale;  // Set initial gravity scale
+        _postProcessVolume.profile.TryGetSettings(out _cg);
+        targetCg = _cg.gamma.value;
+        originalCg = _cg.gamma.value;
     }
 
     void Update()
     {
+        print(_cg.gamma.value);
         HandleRotation();
         HandleThrust();
         HandleAirBrake();
@@ -40,6 +50,7 @@ public class Movement : MonoBehaviour
         AdjustGravity();
         //boostSlider.maxValue = 1;
         boostSlider.value = Mathf.Clamp01(1 - (boostCooldownEndTime - Time.time) / boostCooldown);
+        _cg.gamma.Override(Vector4.Lerp(_cg.gamma.value, targetCg, Time.deltaTime * 10f));
     }
 
     void HandleRotation()
@@ -84,6 +95,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > boostCooldownEndTime)
         {
+            targetCg = originalCg * 4f;
             isBoosting = true;
             boostEndTime = Time.time + boostDuration;
             boostCooldownEndTime = Time.time + boostDuration + boostCooldown;
@@ -93,6 +105,7 @@ public class Movement : MonoBehaviour
         if (isBoosting && Time.time > boostEndTime)
         {
             isBoosting = false;
+            targetCg = originalCg;
         }
     }
 
@@ -107,7 +120,6 @@ public class Movement : MonoBehaviour
             rb.gravityScale = normalGravityScale;
         }
     }
-
 
     IEnumerator BoostSliderEffect()
     {
