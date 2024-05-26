@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6309308525509040104}
   - component: {fileID: 2338806638950957477}
   - component: {fileID: 1012145900388105067}
+  - component: {fileID: 4471705537185047712}
   - component: {fileID: 9015156423196463471}
   m_Layer: 0
   m_Name: Bomber Plane
@@ -162,6 +163,21 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &4471705537185047712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483550249134082389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c4ab8689d19d040bad3940cc9e651e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  score: {fileID: 0}
 --- !u!114 &9015156423196463471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,4 +196,3 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   amplitude: 1
   frequency: 1
-  rotationSpeed: 1000

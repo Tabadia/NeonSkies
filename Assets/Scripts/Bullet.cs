@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
+            hitInfo.GetComponent<EnemyHealth>().TakeDamage(50);
             Destroy(gameObject);
         }
     }

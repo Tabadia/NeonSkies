@@ -51,7 +51,7 @@ public class FlyIntoPlayer2D : MonoBehaviour
         if (other.gameObject.transform == player)
         {
             playerHealth.TakeDamage(20);
-            Destroy(gameObject);
+            GetComponent<EnemyHealth>().Die();
         }
     }
 }

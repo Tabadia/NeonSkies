@@ -84,6 +84,7 @@ public class Missiles : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
+            hitInfo.GetComponent<EnemyHealth>().TakeDamage(20);
             Destroy(gameObject);
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1428275092403337558}
   - component: {fileID: 4007100287357833446}
   - component: {fileID: 1622085203189608938}
+  - component: {fileID: -2932162570673742158}
   m_Layer: 0
   m_Name: Kamikaze Plane
   m_TagString: Enemy
@@ -179,3 +180,18 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &-2932162570673742158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145000132634236043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c4ab8689d19d040bad3940cc9e651e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  score: {fileID: 0}
