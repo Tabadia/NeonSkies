@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject hitFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +23,8 @@ public class Bullet : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
-            hitInfo.GetComponent<EnemyHealth>().TakeDamage(50);
-            Destroy(gameObject);
+            //hitInfo.GetComponent<EnemyHealth>().TakeDamage(50);
+            DestroyBullet();
         }
     }
 
@@ -33,6 +35,7 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet()
     {
+        Instantiate(hitFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

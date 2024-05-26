@@ -8,6 +8,7 @@ public class Missiles : MonoBehaviour
     private Transform target;
     private bool isHoming = false;
     public float despawnTime = 5f;
+    public GameObject hitFX;
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +85,8 @@ public class Missiles : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
-            hitInfo.GetComponent<EnemyHealth>().TakeDamage(20);
+            //hitInfo.GetComponent<EnemyHealth>().TakeDamage(20);
+            Instantiate(hitFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
