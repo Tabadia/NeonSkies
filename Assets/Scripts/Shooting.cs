@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            ShootBullet();
+            StartCoroutine(ShootBullet());
         }
         else if (Input.GetButtonDown("Fire2"))
         {
@@ -23,16 +23,22 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void ShootBullet()
+    IEnumerator ShootBullet()
     {
-        // Create a new bullet instance
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, transform.rotation);
+        for (int i = 0; i < 3; i++) // Fire three bullets in a burst
+        {
+            // Create a new bullet instance
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, transform.rotation);
 
-        // Get the Rigidbody2D component from the bullet instance
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            // Get the Rigidbody2D component from the bullet instance
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-        // Set the velocity of the bullet
-        rb.velocity = transform.up * bulletSpeed;
+            // Set the velocity of the bullet with a slight random offset
+            Vector2 randomOffset = new Vector2(Random.Range(-0.03f, 0.03f), Random.Range(-0.03f, 0.03f));
+            rb.velocity = (transform.up + (Vector3)randomOffset) * bulletSpeed;
+
+            yield return new WaitForSeconds(0.04f); // Wait a short time between each bullet in the burst
+        }
     }
 
     IEnumerator ShootMissiles()

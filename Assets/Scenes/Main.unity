@@ -251,14 +251,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959d172150d9ef6498272a65f764cc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomberPrefab: {fileID: 3483550249134082389, guid: 63573dd7846889c4e8e17a2f2cc3ec4c, type: 3}
-  spawnFrequency: 4
-  flyingToPlayerPrefab: {fileID: 8145000132634236043, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
-  flyingToPlayerSpawnFrequency: 4
-  minBHeight: 5
-  maxBHeight: 10
-  minFHeight: -10
-  maxFHeight: 10
+  bomberSettings:
+    prefab: {fileID: 3483550249134082389, guid: 63573dd7846889c4e8e17a2f2cc3ec4c, type: 3}
+    minSpawnHeight: 5
+    maxSpawnHeight: 10
+    spawnFrequency: 6
+  kamikazeSettings:
+    prefab: {fileID: 8145000132634236043, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
+    minSpawnHeight: -10
+    maxSpawnHeight: 10
+    spawnFrequency: 4
+  mainEnemySettings:
+    prefab: {fileID: 3888617834191490265, guid: dcad9756d01fe984a8e8dce33d403ba2, type: 3}
+    minSpawnHeight: 10
+    maxSpawnHeight: -10
+    spawnFrequency: 5
   player: {fileID: 1156355536}
   spawnXDistance: 30
 --- !u!1 &62077582
@@ -3075,6 +3082,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382657738}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: maxHealth
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 3112519920868653724, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_Name
       value: Player Plane
@@ -3131,9 +3142,21 @@ PrefabInstance:
       propertyPath: _postProcessVolume
       value: 
       objectReference: {fileID: 1459461670}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: bulletSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6406708806579187120, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705988206253572257, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705988206253572257, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.619
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
