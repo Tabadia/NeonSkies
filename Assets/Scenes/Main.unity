@@ -3138,6 +3138,14 @@ PrefabInstance:
       propertyPath: _postProcessVolume
       value: 
       objectReference: {fileID: 81510511}
+    - target: {fileID: 5908914223421215297, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
@@ -3153,6 +3161,22 @@ PrefabInstance:
     - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: InitialModule.startColor.minMaxState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571031886651292712, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571031886651292712, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571031886651292712, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571031886651292712, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
