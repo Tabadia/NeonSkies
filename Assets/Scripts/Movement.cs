@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
     public ParticleSystem playerTrailFX;
     public ParticleSystem playerBoostFX;
     public AudioSource boostAudio;
+    public Canvas boostIndicator;
 
     private Rigidbody2D rb;
     private bool isBoosting = false;
@@ -30,6 +32,7 @@ public class Movement : MonoBehaviour
     private ColorGrading _cg;
     private Vector4 targetCg;
     private Vector4 originalCg;
+    private bool wroteBoost = false;
 
     public Slider boostSlider;
 
@@ -51,9 +54,32 @@ public class Movement : MonoBehaviour
         HandleAirBrake();
         HandleBoost();
         AdjustGravity();
+
+        if (!wroteBoost && Time.time > boostCooldownEndTime)
+        {
+            boostIndicator.gameObject.SetActive(true);
+            wroteBoost = true;
+            StartCoroutine(WriteMessage(boostIndicator.transform.GetChild(0).GetComponent<TMP_Text>(), "Boost Active!"));
+        }
+
+        boostIndicator.transform.position = transform.position + Vector3.down * 1.3f;
+
         //boostSlider.maxValue = 1;
         boostSlider.value = Mathf.Clamp01(1 - (boostCooldownEndTime - Time.time) / boostCooldown);
         _cg.gamma.Override(Vector4.Lerp(_cg.gamma.value, targetCg, Time.deltaTime * 10f));
+    }
+
+    private IEnumerator WriteMessage(TMP_Text obj, string message)
+    {
+        obj.text = "";
+        for (int i = 0; i < message.Length; i++)
+        {
+            obj.text += message[i];
+            yield return new WaitForSeconds(.05f);
+        }
+
+        yield return new WaitForSeconds(.5f);
+        obj.transform.parent.gameObject.SetActive(false);
     }
 
     void HandleRotation()
@@ -118,6 +144,7 @@ public class Movement : MonoBehaviour
             var emission = playerBoostFX.emission;
             emission.enabled = false;
             targetCg = originalCg;
+            wroteBoost = false;
         }
     }
 
