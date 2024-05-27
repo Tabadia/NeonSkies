@@ -85,7 +85,7 @@ public class EnemyMissiles : MonoBehaviour
         if (hitInfo.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit player");
-            hitInfo.GetComponent<EnemyHealth>().TakeDamage(20);
+            hitInfo.GetComponent<PlayerHealth>().TakeDamage(20);
             Instantiate(hitFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

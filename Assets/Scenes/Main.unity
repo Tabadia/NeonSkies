@@ -3082,6 +3082,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382657738}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: maxHealth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 3112519920868653724, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_Name
       value: Player Plane
