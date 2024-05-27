@@ -6,36 +6,78 @@ public class Bomber : MonoBehaviour
     public float speed = 5f;
     public GameObject projectilePrefab;
     public float dropFrequency = 1f;
-    public Vector3 direction;
     public float amplitude = 1f;
     public float frequency = 1f;
+    public int projectilesPerBurst = 5;
+    public float cooldownTime = 5f;
+    private Transform player;
 
+    private Vector3 direction;
     private float initialY;
+    private bool swoopingDown = true;
+    private float swoopTimer = 0f;
+    public float swoopDuration = 2f;
+    public float circlingRadius = 5f;
+    public float circlingSpeed = 2f;
 
     private void Start()
     {
         initialY = transform.position.y;
+        direction = Vector3.left;
         StartCoroutine(DropProjectiles());
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        float newY = initialY + amplitude * Mathf.Sin(frequency * Time.time);
-        Vector3 newPosition = new Vector3(transform.position.x + direction.x * speed * Time.deltaTime, newY, transform.position.z);
-
-        // Calculate the angle in the direction of movement
-        Vector3 directionToNewPosition = newPosition - transform.position;
-        float angle = Mathf.Atan2(directionToNewPosition.y, directionToNewPosition.x) * Mathf.Rad2Deg;
-
-        // Rotate the bomber to face the direction of movement
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-
-        // Update the position after calculating the rotation
-        transform.position = newPosition;
+        Move();
+        FaceDirection();
     }
 
-    public int projectilesPerBurst = 5; // Number of projectiles in each burst
-    public float cooldownTime = 5f; // Cooldown time between bursts
+    private void Move()
+    {
+        swoopTimer += Time.fixedDeltaTime;
+        float offset = Mathf.Sin(swoopTimer * frequency) * amplitude;
+
+        if (player.position.y > transform.position.y)
+        {
+            Vector3 targetPosition = new Vector3(player.position.x, initialY + offset, 0);
+            Vector3 moveDirection = (targetPosition - transform.position).normalized * speed * Time.fixedDeltaTime;
+            transform.position += moveDirection;
+        }
+        else
+        {
+            if (swoopingDown)
+            {
+                if (swoopTimer >= swoopDuration)
+                {
+                    swoopingDown = false;
+                    swoopTimer = 0f;
+                }
+                offset = Mathf.Abs(offset);
+            }
+            else
+            {
+                if (swoopTimer >= swoopDuration)
+                {
+                    swoopingDown = true;
+                    swoopTimer = 0f;
+                }
+                offset = -Mathf.Abs(offset);
+            }
+
+            Vector3 targetPosition = new Vector3(player.position.x, initialY + offset, 0);
+            Vector3 moveDirection = (targetPosition - transform.position).normalized * speed * Time.fixedDeltaTime;
+            transform.position += moveDirection;
+        }
+    }
+
+    private void FaceDirection()
+    {
+        Vector3 moveDirection = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, 0).normalized;
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+    }
 
     private IEnumerator DropProjectiles()
     {

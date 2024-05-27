@@ -136,11 +136,11 @@ MonoBehaviour:
   missilePrefab: {fileID: 2566400201774554973, guid: 6fdb105bbfb3e2946806a7b0becaad49, type: 3}
   followSpeed: 15
   followDistance: 10
-  bulletFireRate: 1
+  bulletFireRate: 2
   missileFireRate: 5
   fireDistance: 15
   bulletSpeed: 30
-  missileCount: 3
+  missileCount: 2
   bulletSpawnPoint: {fileID: 5022168587316207292}
 --- !u!50 &3452128294967364229
 Rigidbody2D:

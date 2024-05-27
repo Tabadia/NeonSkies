@@ -192,8 +192,8 @@ MonoBehaviour:
   speed: 5
   projectilePrefab: {fileID: 4641541195374978691, guid: 5b1a6f3e20ad22943803bb4960e6e389, type: 3}
   dropFrequency: 0.2
-  direction: {x: 0, y: 0, z: 0}
-  amplitude: 1
+  amplitude: 0.1
   frequency: 1
   projectilesPerBurst: 5
   cooldownTime: 5
+  swoopDuration: 2
