@@ -15,4 +15,11 @@ public class CameraFollow : MonoBehaviour
         smoothedPosition.z = transform.position.z; // Ensure the camera stays at its original z position
         transform.position = smoothedPosition;
     }
+
+    private void ShakeCamera(float duration, float intensity)
+    {
+
+    }
+
+    
 }
