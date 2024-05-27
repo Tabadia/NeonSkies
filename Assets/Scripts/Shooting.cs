@@ -16,6 +16,9 @@ public class Shooting : MonoBehaviour
     private float lastBulletShotTime;
     private float lastMissileShotTime;
 
+    public AudioSource bulletShootAudio;
+    public AudioSource missileShootAudio;
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && Time.time - lastBulletShotTime >= bulletCooldown)
@@ -32,6 +35,7 @@ public class Shooting : MonoBehaviour
 
     IEnumerator ShootBullet()
     {
+        bulletShootAudio.Play();
         for (int i = 0; i < 3; i++) // Fire three bullets in a burst
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, transform.rotation);
@@ -47,6 +51,7 @@ public class Shooting : MonoBehaviour
 
     IEnumerator ShootMissiles()
     {
+        missileShootAudio.Play();
         int halfCount = missileCount / 2;
         for (int i = 0; i <= halfCount; i++)
         {

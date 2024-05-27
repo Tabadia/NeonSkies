@@ -104,13 +104,8 @@ MonoBehaviour:
   player: {fileID: 0}
   maxSpeed: 15
   acceleration: 10
-  deceleration: 2
   rotationSpeed: 100
-  rotationSmoothing: 0.1
   accuracy: 0.5
-  wiggleMagnitude: 0.1
-  wiggleFrequency: 2
-  wiggleOffset: 0
 --- !u!50 &4007100287357833446
 Rigidbody2D:
   serializedVersion: 4
@@ -200,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  planeExplosionFX: {fileID: 1368126083222113778, guid: 15e21cebcfd568e40813b569f47de0c7, type: 3}
 --- !u!114 &8755426523225089907
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,10 +16,26 @@ public class CameraFollow : MonoBehaviour
         transform.position = smoothedPosition;
     }
 
-    private void ShakeCamera(float duration, float intensity)
+    public void ScreenShake(float duration, float intensity)
     {
-
+        StartCoroutine(ExecuteScreenShake(duration, intensity));
     }
-
     
+    private IEnumerator ExecuteScreenShake(float duration, float intensity)
+    {
+        Vector3 originalPosition = transform.localPosition;
+
+        for (int i = 0; i < duration; i++)
+        {
+            yield return new WaitForEndOfFrame();
+
+            float x = Random.Range(-1f, 1f) * intensity;
+            float y = Random.Range(-1f, 1f) * intensity;
+
+            transform.localPosition = new Vector3(x + transform.localPosition.x, y + transform.localPosition.y, originalPosition.z);
+
+        }
+
+        transform.localPosition = originalPosition;
+    }
 }

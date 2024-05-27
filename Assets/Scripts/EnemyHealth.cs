@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public float currentHealth;
+    public GameObject planeExplosionFX;
     private TMP_Text score;
 
     // Start is called before the first frame update
@@ -34,6 +35,10 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         score.text = (int.Parse(score.text) + 50).ToString("D6");
+        Instantiate(planeExplosionFX, transform.position, Quaternion.identity);
+        // frame, intensity
+        Camera.main.GetComponent<CameraFollow>().ScreenShake(15f, .2f);
+
         Destroy(gameObject);
     }
 }

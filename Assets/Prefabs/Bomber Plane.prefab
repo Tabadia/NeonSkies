@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  planeExplosionFX: {fileID: 1368126083222113778, guid: 15e21cebcfd568e40813b569f47de0c7, type: 3}
 --- !u!114 &9015156423196463471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +198,5 @@ MonoBehaviour:
   projectilesPerBurst: 5
   cooldownTime: 5
   swoopDuration: 2
+  circlingRadius: 5
+  circlingSpeed: 2

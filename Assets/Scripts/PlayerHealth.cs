@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public float currentHealth;
     public Slider healthBar;
+    public AudioSource hurtAudio;
     private TMP_Text score;
 
     void Start()
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        hurtAudio.Play();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

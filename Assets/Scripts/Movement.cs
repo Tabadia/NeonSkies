@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     public PostProcessVolume _postProcessVolume;
     public ParticleSystem playerTrailFX;
     public ParticleSystem playerBoostFX;
+    public AudioSource boostAudio;
 
     private Rigidbody2D rb;
     private bool isBoosting = false;
@@ -97,6 +98,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > boostCooldownEndTime)
         {
+            boostAudio.Play();
             var emission = playerBoostFX.emission;
             emission.enabled = true;
             emission = playerTrailFX.emission;
