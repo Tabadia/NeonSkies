@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3452128294967364229}
   - component: {fileID: 6466442632633830530}
   - component: {fileID: 1043236390298877008}
-  - component: {fileID: 2202731713063941766}
+  - component: {fileID: 6888919812268040918}
   m_Layer: 0
   m_Name: Main Enemy Plane
   m_TagString: Enemy
@@ -213,7 +213,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   planeExplosionFX: {fileID: 1368126083222113778, guid: 15e21cebcfd568e40813b569f47de0c7, type: 3}
---- !u!60 &2202731713063941766
+--- !u!60 &6888919812268040918
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +242,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -257,13 +257,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.024999999, y: 0.13}
-      - {x: -0.024999999, y: 0.13}
-      - {x: -0.065, y: 0.07}
+    - - {x: -0.044993144, y: 0.1518867}
       - {x: -0.195, y: -0.11}
-      - {x: -0.195, y: -0.17999999}
-      - {x: -0.185, y: -0.19999999}
-      - {x: 0.185, y: -0.19999999}
-      - {x: 0.195, y: -0.17999999}
-      - {x: 0.195, y: -0.11}
+      - {x: -0.2137547, y: -0.20267926}
+      - {x: 0.0021691546, y: -0.22143392}
+      - {x: 0.21643394, y: -0.20267922}
+      - {x: 0.195, y: -0.099999994}
+      - {x: 0.037679266, y: 0.15188666}
   m_UseDelaunayMesh: 0
