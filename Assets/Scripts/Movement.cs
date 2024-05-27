@@ -99,6 +99,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > boostCooldownEndTime)
         {
             boostAudio.Play();
+
             var emission = playerBoostFX.emission;
             emission.enabled = true;
             emission = playerTrailFX.emission;
