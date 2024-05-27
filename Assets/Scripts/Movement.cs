@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     public float normalGravityScale = 1.0f;    // Normal gravity scale when not thrusting
     public float reducedGravityScale = 0.2f;   // Reduced gravity scale when thrusting
     public PostProcessVolume _postProcessVolume;
+    public ParticleSystem playerTrailFX;
+    public ParticleSystem playerBoostFX;
 
     private Rigidbody2D rb;
     private bool isBoosting = false;
@@ -95,6 +97,11 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > boostCooldownEndTime)
         {
+            var emission = playerBoostFX.emission;
+            emission.enabled = true;
+            emission = playerTrailFX.emission;
+            emission.enabled = false;
+
             targetCg = originalCg * 4f;
             isBoosting = true;
             boostEndTime = Time.time + boostDuration;
@@ -105,6 +112,8 @@ public class Movement : MonoBehaviour
         if (isBoosting && Time.time > boostEndTime)
         {
             isBoosting = false;
+            var emission = playerBoostFX.emission;
+            emission.enabled = false;
             targetCg = originalCg;
         }
     }
@@ -113,10 +122,19 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
+            if (!isBoosting)
+            {
+                var emission = playerTrailFX.emission;
+                emission.enabled = true;
+            }
+
             rb.gravityScale = reducedGravityScale;
         }
         else
         {
+            var emission = playerTrailFX.emission;
+            emission.enabled = false;
+
             rb.gravityScale = normalGravityScale;
         }
     }

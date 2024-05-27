@@ -3082,10 +3082,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382657738}
-    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: maxHealth
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 3112519920868653724, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_Name
       value: Player Plane
@@ -3131,48 +3127,28 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: speed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: boostSlider
       value: 
       objectReference: {fileID: 2038330812}
     - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: deceleration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: _postProcessVolume
       value: 
       objectReference: {fileID: 81510511}
-    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: normalGravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: bulletSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: bulletCooldown
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: missileCooldown
+    - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6406708806579187120, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: m_BodyType
-      value: 0
+    - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6705988206253572257, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
+    - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6705988206253572257, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.619
+    - target: {fileID: 6402243114259130788, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
