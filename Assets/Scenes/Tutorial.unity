@@ -1313,6 +1313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 628289210}
   - component: {fileID: 628289212}
+  - component: {fileID: 628289213}
   - component: {fileID: 628289211}
   m_Layer: 5
   m_Name: Tutorial Text
@@ -1362,8 +1363,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 280adb7fc16ca024d9c69d777b599255, type: 2}
-  m_sharedMaterial: {fileID: 3280063379488890472, guid: 280adb7fc16ca024d9c69d777b599255, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dbafcde703a440c47b03c823068051b5, type: 2}
+  m_sharedMaterial: {fileID: 9023337592159162899, guid: dbafcde703a440c47b03c823068051b5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1394,7 +1395,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1437,6 +1438,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628289209}
   m_CullTransparentMesh: 1
+--- !u!114 &628289213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628289209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a0500cd50f6ab4986a66008b19d40b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeStart: 0
+  delay: 0.05
 --- !u!1 &628812420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -105, y: -25}
+  m_AnchoredPosition: {x: -105, y: -29.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401912801
@@ -2363,8 +2378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 000000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 280adb7fc16ca024d9c69d777b599255, type: 2}
-  m_sharedMaterial: {fileID: 3280063379488890472, guid: 280adb7fc16ca024d9c69d777b599255, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dbafcde703a440c47b03c823068051b5, type: 2}
+  m_sharedMaterial: {fileID: 9023337592159162899, guid: dbafcde703a440c47b03c823068051b5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2388,8 +2403,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 37.5
+  m_fontSizeBase: 37.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2424,7 +2439,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 63.82074, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
