@@ -3139,8 +3139,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2038330812}
     - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: deceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: _postProcessVolume
       value: 
+      objectReference: {fileID: 81510511}
+    - target: {fileID: 5473959735422039855, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: normalGravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: bulletSpeed
