@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
         score.text = (int.Parse(score.text) + 50).ToString("D6");
         Instantiate(planeExplosionFX, transform.position, Quaternion.identity);
         // frame, intensity
-        Camera.main.GetComponent<CameraFollow>().ScreenShake(15f, .2f);
+        Camera.main.GetComponent<CameraFollow>().ScreenShake(15f, 1f);
 
         Destroy(gameObject);
     }

@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     public PostProcessVolume _postProcessVolume;
     public ParticleSystem playerTrailFX;
     public ParticleSystem playerBoostFX;
+    public ParticleSystem playerStallFX;
     public AudioSource boostAudio;
     public Canvas boostIndicator;
 
@@ -33,6 +34,8 @@ public class Movement : MonoBehaviour
     private Vector4 targetCg;
     private Vector4 originalCg;
     private bool wroteBoost = false;
+    private bool isStalling;
+    private bool isWritingMessage;
 
     public Slider boostSlider;
 
@@ -48,16 +51,17 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        //print(_cg.gamma.value);
-        HandleRotation();
-        HandleThrust();
-        HandleAirBrake();
-        HandleBoost();
-        AdjustGravity();
+        if (!isStalling)
+        {
+            HandleRotation();
+            HandleThrust();
+            HandleAirBrake();
+            HandleBoost();
+            AdjustGravity();
+        }
 
         if (!wroteBoost && Time.time > boostCooldownEndTime)
         {
-            boostIndicator.gameObject.SetActive(true);
             wroteBoost = true;
             StartCoroutine(WriteMessage(boostIndicator.transform.GetChild(0).GetComponent<TMP_Text>(), "Boost Active!"));
         }
@@ -71,7 +75,12 @@ public class Movement : MonoBehaviour
 
     private IEnumerator WriteMessage(TMP_Text obj, string message)
     {
+        if (isWritingMessage) yield return null;
+
+        isWritingMessage = true;
+
         obj.text = "";
+        obj.transform.parent.gameObject.SetActive(true);
         for (int i = 0; i < message.Length; i++)
         {
             obj.text += message[i];
@@ -80,6 +89,7 @@ public class Movement : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
         obj.transform.parent.gameObject.SetActive(false);
+        isWritingMessage = false;
     }
 
     void HandleRotation()
@@ -185,5 +195,27 @@ public class Movement : MonoBehaviour
         }
 
         boostSlider.value = targetValue;
+    }
+
+    public void Stall(float time)
+    {
+        StartCoroutine(ExecuteStall(time));
+    }
+
+    private IEnumerator ExecuteStall(float time)
+    {
+        isStalling = true;
+        rb.gravityScale = normalGravityScale;
+
+        var emission = playerStallFX.emission;
+        emission.enabled = true;
+
+        StartCoroutine(WriteMessage(boostIndicator.transform.GetChild(0).GetComponent<TMP_Text>(), "STALLING..."));
+
+        yield return new WaitForSeconds(time);
+
+        emission = playerStallFX.emission;
+        emission.enabled = false;
+        isStalling = false;
     }
 }
