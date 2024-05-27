@@ -176,7 +176,7 @@ MonoBehaviour:
     prefab: {fileID: 8145000132634236043, guid: f7af50031a3d8f54f944953241ca6b0e, type: 3}
     minSpawnHeight: -10
     maxSpawnHeight: 10
-    spawnFrequency: 4
+    spawnFrequency: 3
   mainEnemySettings:
     prefab: {fileID: 3888617834191490265, guid: dcad9756d01fe984a8e8dce33d403ba2, type: 3}
     minSpawnHeight: 10
@@ -3179,6 +3179,10 @@ PrefabInstance:
       propertyPath: _postProcessVolume
       value: 
       objectReference: {fileID: 81510511}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: bulletSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5908914223421215297, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
