@@ -37,7 +37,7 @@ public class JetFrameController : MonoBehaviour
         }
 
 
-        Debug.Log(transform.localEulerAngles);
+        //Debug.Log(transform.localEulerAngles);
         if (transform.localEulerAngles.z > 0 && transform.localEulerAngles.z < 180 )
         {
             spriteRenderer.flipX = true;
