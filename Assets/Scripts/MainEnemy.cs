@@ -20,7 +20,7 @@ public class MainEnemy : MonoBehaviour
 
     public float fireDistance = 15f; // The distance within which the enemy will fire at the player
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (player != null)
         {
