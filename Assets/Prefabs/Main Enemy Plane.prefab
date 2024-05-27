@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3077594661248696882}
   - component: {fileID: 3452128294967364229}
   - component: {fileID: 2935161423172311683}
+  - component: {fileID: 6466442632633830530}
   - component: {fileID: 1043236390298877008}
   m_Layer: 0
   m_Name: Main Enemy Plane
@@ -62,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6924072, y: -1.037318, z: 0}
-  m_LocalScale: {x: 0.6, y: 1, z: 0.8}
+  m_LocalScale: {x: 3.2, y: 3.2, z: 3.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5022168587316207292}
@@ -109,8 +110,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.2279841, b: 0, a: 1}
+  m_Sprite: {fileID: 653763218, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,14 +135,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2678509569022509176, guid: ff1554e42e7dc3542bbe499cddf6d638, type: 3}
   missilePrefab: {fileID: 2566400201774554973, guid: 6fdb105bbfb3e2946806a7b0becaad49, type: 3}
-  followSpeed: 15
-  followDistance: 10
+  followSpeed: 4500
+  maxSpeed: 20
+  acceleration: 50
+  deceleration: 0.5
+  airBrakeDeceleration: 10
+  rotationSpeed: 10000
+  rotationSmoothing: 0.1
   bulletFireRate: 2
   missileFireRate: 5
   fireDistance: 15
   bulletSpeed: 30
   missileCount: 2
   bulletSpawnPoint: {fileID: 5022168587316207292}
+  normalGravityScale: 0.2
+  reducedGravityScale: 0
 --- !u!50 &3452128294967364229
 Rigidbody2D:
   serializedVersion: 4
@@ -150,14 +158,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3888617834191490265}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -204,8 +212,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.39, y: 0.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +225,27 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &6466442632633830530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888617834191490265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338ec465aa5e36409bbe99678689287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 653763218, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: 1780332042, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: -1134560713, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: -2029289426, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: -251155167, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: -1015163386, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  - {fileID: -184758380, guid: b0c2a489c9c9d9a43a75defcc5b40839, type: 3}
+  maxFrame: 6
 --- !u!114 &1043236390298877008
 MonoBehaviour:
   m_ObjectHideFlags: 0
