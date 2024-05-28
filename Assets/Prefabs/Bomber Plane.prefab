@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1012145900388105067}
   - component: {fileID: 4471705537185047712}
   - component: {fileID: 9015156423196463471}
+  - component: {fileID: 324805405757407533}
   m_Layer: 0
   m_Name: Bomber Plane
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 8.07, y: 1.16, z: 0}
-  m_LocalScale: {x: 0.42000002, y: 0.7, z: 0.56}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -714244099, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
   m_Color: {r: 0, g: 1, b: 0.080822706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,8 +151,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.39, y: 0.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -200,3 +201,24 @@ MonoBehaviour:
   swoopDuration: 2
   circlingRadius: 5
   circlingSpeed: 2
+--- !u!114 &324805405757407533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483550249134082389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338ec465aa5e36409bbe99678689287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -714244099, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -131408924, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -790304637, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -1727493069, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -951376293, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -815670968, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: 301590762, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  maxFrame: 6
