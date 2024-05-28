@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public Slider healthBar;
     public AudioSource hurtAudio;
+    public PostProcessVolume _postProcessVolume;
+    public Color damageVignetteColor;
     private TMP_Text score;
+
+    private ColorGrading _cg;
 
     void Start()
     {
@@ -18,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
         StartCoroutine(IncreaseScore());
+        _postProcessVolume.profile.TryGetSettings(out _cg);
     }
 
     // Update is called once per frame
@@ -28,12 +34,26 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(AnimateVignette());
+
         hurtAudio.Play();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator AnimateVignette()
+    {
+        Vector4 originalColor = _cg.gamma;
+        _cg.gamma.Override(originalColor + new Vector4(2, 0, 0, 0));
+        for (float i = 0; i < 1; i += .01f)
+        {
+            yield return new WaitForEndOfFrame();
+            _cg.gamma.Override(Vector4.Lerp(_cg.gamma, originalColor, i));
+        }
+        _cg.gamma.Override(originalColor);
     }
 
     void Die()

@@ -3451,6 +3451,26 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1382657738}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: _postProcessVolume
+      value: 
+      objectReference: {fileID: 81510511}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: damageVignetteColor.a
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: damageVignetteColor.b
+      value: 0.30906105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: damageVignetteColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2955040036258482056, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: damageVignetteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3112519920868653724, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
       propertyPath: m_Name
       value: Player Plane
