@@ -618,7 +618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sky Strikers
+  m_text: Neon Skies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbafcde703a440c47b03c823068051b5, type: 2}
   m_sharedMaterial: {fileID: 9023337592159162899, guid: dbafcde703a440c47b03c823068051b5, type: 2}
