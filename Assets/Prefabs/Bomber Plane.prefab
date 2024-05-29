@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8402204174910290903}
   - component: {fileID: 6309308525509040104}
   - component: {fileID: 2338806638950957477}
-  - component: {fileID: 1012145900388105067}
   - component: {fileID: 4471705537185047712}
   - component: {fileID: 9015156423196463471}
   - component: {fileID: 324805405757407533}
+  - component: {fileID: 3324691722097576064}
   m_Layer: 0
   m_Name: Bomber Plane
   m_TagString: Enemy
@@ -116,7 +116,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &1012145900388105067
+--- !u!114 &4471705537185047712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483550249134082389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c4ab8689d19d040bad3940cc9e651e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  planeExplosionFX: {fileID: 1368126083222113778, guid: 15e21cebcfd568e40813b569f47de0c7, type: 3}
+--- !u!114 &9015156423196463471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483550249134082389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6cb4f86b8c3bb489dc403643b4dc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  projectilePrefab: {fileID: 4641541195374978691, guid: 5b1a6f3e20ad22943803bb4960e6e389, type: 3}
+  dropFrequency: 0.2
+  amplitude: 2
+  frequency: 1
+  projectilesPerBurst: 5
+  cooldownTime: 5
+  swoopDuration: 2
+  circlingRadius: 5
+  circlingSpeed: 2
+--- !u!114 &324805405757407533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483550249134082389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338ec465aa5e36409bbe99678689287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -714244099, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -131408924, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -790304637, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -1727493069, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -951376293, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: -815670968, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  - {fileID: 301590762, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
+  maxFrame: 6
+--- !u!60 &3324691722097576064
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,65 +218,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.04086043, y: 0.1759016}
+      - {x: -0.04143934, y: 0.1681929}
+      - {x: -0.09036833, y: 0.08324685}
+      - {x: -0.195, y: -0.11}
+      - {x: -0.20644802, y: -0.17991368}
+      - {x: -0.2104418, y: -0.2535538}
+      - {x: 0.22844072, y: -0.26876777}
+      - {x: 0.22572763, y: -0.23148568}
+      - {x: 0.20707335, y: -0.1004201}
   m_UseDelaunayMesh: 0
---- !u!114 &4471705537185047712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3483550249134082389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c4ab8689d19d040bad3940cc9e651e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  planeExplosionFX: {fileID: 1368126083222113778, guid: 15e21cebcfd568e40813b569f47de0c7, type: 3}
---- !u!114 &9015156423196463471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3483550249134082389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6cb4f86b8c3bb489dc403643b4dc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  projectilePrefab: {fileID: 4641541195374978691, guid: 5b1a6f3e20ad22943803bb4960e6e389, type: 3}
-  dropFrequency: 0.2
-  amplitude: 0.1
-  frequency: 1
-  projectilesPerBurst: 5
-  cooldownTime: 5
-  swoopDuration: 2
-  circlingRadius: 5
-  circlingSpeed: 2
---- !u!114 &324805405757407533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3483550249134082389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5338ec465aa5e36409bbe99678689287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frames:
-  - {fileID: -714244099, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: -131408924, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: -790304637, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: -1727493069, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: -951376293, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: -815670968, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  - {fileID: 301590762, guid: 4643d21a1c76dc2419274522f40e5880, type: 3}
-  maxFrame: 6

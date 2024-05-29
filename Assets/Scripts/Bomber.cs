@@ -12,10 +12,8 @@ public class Bomber : MonoBehaviour
     public float cooldownTime = 5f;
     private Transform player;
 
-    private Vector3 direction;
+    private float direction;
     private float initialY;
-    private bool swoopingDown = true;
-    private float swoopTimer = 0f;
     public float swoopDuration = 2f;
     public float circlingRadius = 5f;
     public float circlingSpeed = 2f;
@@ -23,7 +21,7 @@ public class Bomber : MonoBehaviour
     private void Start()
     {
         initialY = transform.position.y;
-        direction = Vector3.left;
+        direction = Random.value < 0.5f ? -1f : 1f;
         StartCoroutine(DropProjectiles());
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -31,50 +29,13 @@ public class Bomber : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        FaceDirection();
     }
 
     private void Move()
     {
-        swoopTimer += Time.fixedDeltaTime;
-        float offset = Mathf.Sin(swoopTimer * frequency) * amplitude;
-
-        if (player.position.y > transform.position.y)
-        {
-            Vector3 targetPosition = new Vector3(player.position.x, initialY + offset, 0);
-            Vector3 moveDirection = (targetPosition - transform.position).normalized * speed * Time.fixedDeltaTime;
-            transform.position += moveDirection;
-        }
-        else
-        {
-            if (swoopingDown)
-            {
-                if (swoopTimer >= swoopDuration)
-                {
-                    swoopingDown = false;
-                    swoopTimer = 0f;
-                }
-                offset = Mathf.Abs(offset);
-            }
-            else
-            {
-                if (swoopTimer >= swoopDuration)
-                {
-                    swoopingDown = true;
-                    swoopTimer = 0f;
-                }
-                offset = -Mathf.Abs(offset);
-            }
-
-            Vector3 targetPosition = new Vector3(player.position.x, initialY + offset, 0);
-            Vector3 moveDirection = (targetPosition - transform.position).normalized * speed * Time.fixedDeltaTime;
-            transform.position += moveDirection;
-        }
-    }
-
-    private void FaceDirection()
-    {
-        Vector3 moveDirection = new Vector3(player.position.x - transform.position.x, player.position.y - transform.position.y, 0).normalized;
+        float newY = initialY + amplitude * Mathf.Sin(frequency * Time.time);
+        Vector3 moveDirection = new Vector3(direction * speed * Time.fixedDeltaTime, newY - transform.position.y, 0);
+        transform.position += moveDirection;
         float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
