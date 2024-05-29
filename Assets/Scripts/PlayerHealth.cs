@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
-
+using UnityEngine.SceneManagement; 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -58,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("Dead");
     }
 
     IEnumerator IncreaseScore(){
