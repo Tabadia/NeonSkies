@@ -21,7 +21,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time - lastBulletShotTime >= bulletCooldown)
+        if (Input.GetButton("Fire1") && Time.time - lastBulletShotTime >= bulletCooldown)
         {
             lastBulletShotTime = Time.time;
             StartCoroutine(ShootBullet());

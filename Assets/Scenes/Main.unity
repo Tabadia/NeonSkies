@@ -3567,6 +3567,10 @@ PrefabInstance:
       propertyPath: _postProcessVolume
       value: 
       objectReference: {fileID: 81510511}
+    - target: {fileID: 5901151450642879745, guid: 613f90a75fcaf424b8cd0c0deda59bef, type: 3}
+      propertyPath: bulletCooldown
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
