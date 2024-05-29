@@ -20,6 +20,8 @@ public class CameraFollow : MonoBehaviour
         smoothedPosition.z = transform.position.z; // Ensure the camera stays at its original z position
         screenShakeOffset = new Vector3(shakeX, shakeY, 0f);
         transform.position = smoothedPosition + screenShakeOffset;
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -980, 980), Mathf.Clamp(transform.position.y, -5, 1150), transform.position.z);
     }
 
     public void ScreenShake(float duration, float intensity)
